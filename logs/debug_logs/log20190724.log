@@ -1,0 +1,5 @@
+[INFO][apiinfo.go:49]2019/07/24 16:21:40 [hello]
+[INFO][apiinfo.go:49]2019/07/24 16:22:45 [hello]
+[INFO][apiinfo.go:50]2019/07/24 16:23:29 [Fetching API version information]
+[INFO][apiinfo.go:50]2019/07/24 16:36:12 [Fetching API version information]
+[INFO][apiinfo.go:50]2019/07/24 16:45:05 [Fetching API version information]

@@ -1,0 +1,249 @@
+basePath: '{{.BasePath}}'
+definitions:
+  app.Response:
+    properties:
+      code:
+        type: integer
+      data:
+        type: object
+      msg:
+        type: string
+    type: object
+host: '{{.Host}}'
+info:
+  contact: {}
+  description: '{{.Description}}'
+  license: {}
+  title: '{{.Title}}'
+  version: '{{.Version}}'
+paths:
+  /api/v1/articles:
+    get:
+      parameters:
+      - description: TagID
+        in: body
+        name: tag_id
+        schema:
+          $ref: '#/definitions/int'
+          type: object
+      - description: State
+        in: body
+        name: state
+        schema:
+          $ref: '#/definitions/int'
+          type: object
+      - description: CreatedBy
+        in: body
+        name: created_by
+        schema:
+          $ref: '#/definitions/int'
+          type: object
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/app.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/app.Response'
+      summary: Get multiple articles
+    post:
+      parameters:
+      - description: TagID
+        in: body
+        name: tag_id
+        required: true
+        schema:
+          $ref: '#/definitions/int'
+          type: object
+      - description: Title
+        in: body
+        name: title
+        required: true
+        schema:
+          $ref: '#/definitions/string'
+          type: object
+      - description: Desc
+        in: body
+        name: desc
+        required: true
+        schema:
+          $ref: '#/definitions/string'
+          type: object
+      - description: Content
+        in: body
+        name: content
+        required: true
+        schema:
+          $ref: '#/definitions/string'
+          type: object
+      - description: CreatedBy
+        in: body
+        name: created_by
+        required: true
+        schema:
+          $ref: '#/definitions/string'
+          type: object
+      - description: State
+        in: body
+        name: state
+        required: true
+        schema:
+          $ref: '#/definitions/int'
+          type: object
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/app.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/app.Response'
+      summary: Add article
+  /api/v1/articles/{id}:
+    delete:
+      parameters:
+      - description: ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/app.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/app.Response'
+      summary: Delete article
+    get:
+      parameters:
+      - description: ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/app.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/app.Response'
+      summary: Get a single article
+    put:
+      parameters:
+      - description: ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: TagID
+        in: body
+        name: tag_id
+        schema:
+          $ref: '#/definitions/string'
+          type: object
+      - description: Title
+        in: body
+        name: title
+        schema:
+          $ref: '#/definitions/string'
+          type: object
+      - description: Desc
+        in: body
+        name: desc
+        schema:
+          $ref: '#/definitions/string'
+          type: object
+      - description: Content
+        in: body
+        name: content
+        schema:
+          $ref: '#/definitions/string'
+          type: object
+      - description: ModifiedBy
+        in: body
+        name: modified_by
+        required: true
+        schema:
+          $ref: '#/definitions/string'
+          type: object
+      - description: State
+        in: body
+        name: state
+        schema:
+          $ref: '#/definitions/int'
+          type: object
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/app.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/app.Response'
+      summary: Update article
+  /api/v1/tags/import:
+    post:
+      parameters:
+      - description: Image File
+        in: formData
+        name: image
+        required: true
+        type: file
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/app.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/app.Response'
+      summary: Import Image
+  /auth:
+    get:
+      parameters:
+      - description: userName
+        in: query
+        name: username
+        required: true
+        type: string
+      - description: password
+        in: query
+        name: password
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/app.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/app.Response'
+      summary: Get Auth
+swagger: "2.0"

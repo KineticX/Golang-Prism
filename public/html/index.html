@@ -1,0 +1,47 @@
+<html>
+<head>
+</head>
+<body>
+<h1><span style="color: #333333;">Command Delivery [Micro Service]&nbsp;</span></h1>
+<p><span style="color: #333333;">------------------------------------------------------------------------------------------</span></p>
+<p><span style="color: #333333;" id="version">[Version X.X.X.X]&nbsp;</span><span style="color: #333333;" id="compiledon">[Compiled on: XM XD XY]&nbsp;</span><span style="color: #333333;" id="gitcommit">[Git Revision: ]</span></p>
+<p>&nbsp;</p>
+<h1><span style="color: #333;">How to use the command delivery:</span></h1>
+<p>This micro service was designed with simplicity in mind. Within the solution is the following components:&nbsp;</p>
+<ul>
+<li>Download Access for the compiled CLI [Command Line Interface]</li>
+<li>Swagger API docs for the service</li>
+<li>General help and information on getting started</li>
+<li>General Spec documentation for the Micro Service</li>
+</ul>
+<h1>Where is Everything?</h1>
+<ul>
+<li>CLI Download is available [here]</li>
+<li>Swagger Documentation for the API is available<a title="Swagger Docs" href="./swagger/index.html">[here]</a></li>
+<li>Source Code:&nbsp;<a href="https://github.llnw.net/jmcallister/command-delivery">https://github.llnw.net/jmcallister/command-delivery</a></li>
+</ul>
+<p>&nbsp;</p>
+<p><strong>Save this link into your bookmarks and share it with your friends. It is all FREE! </strong><br /><strong>Enjoy!</strong></p>
+<p><strong>&nbsp;</strong></p>
+
+</body>
+<script> 
+
+// Requiring fs module in which  
+// readFile function is defined. 
+ var xhReq = new XMLHttpRequest();
+ xhReq.open("GET", "version.txt", false);
+ xhReq.send(null);
+ var serverResponse = xhReq.responseText;
+ var versioninfo = serverResponse.split("\n")
+
+console.log(serverResponse);
+var theDiv = document.getElementById("version");
+theDiv.innerHTML = "[Version: "+ versioninfo[0].toString()+"] ";        
+var theDiv2 = document.getElementById("gitcommit");
+theDiv2.innerHTML = "[Git Commit: "+ versioninfo[1]+"] ";        
+var theDiv3 = document.getElementById("compiledon");
+theDiv3.innerHTML = "[Date Compiled: "+ versioninfo[2]+"] ";        
+
+
+</script> 
